@@ -3,6 +3,7 @@
 Import("env")
 
 ios_lib = [
+    "godot_ios_wrapper.mm",
     "godot_ios.mm",
     "os_ios.mm",
     "main.m",
