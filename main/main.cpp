@@ -237,6 +237,8 @@ bool profile_gpu = false;
 static const String NULL_DISPLAY_DRIVER("headless");
 static const String NULL_AUDIO_DRIVER("Dummy");
 
+int Main::versionYolo = 0;
+
 /* Helper methods */
 
 bool Main::is_cmdline_tool() {
@@ -3871,4 +3873,6 @@ void Main::cleanup(bool p_force) {
 	OS::get_singleton()->benchmark_dump();
 
 	OS::get_singleton()->finalize_core();
+	Object::initialized = false; // Try to set initialized to false on clean => can improve it by creating a specific method
+	Main::versionYolo++;
 }
