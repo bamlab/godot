@@ -263,4 +263,5 @@ ResourceUID::ResourceUID() {
 }
 ResourceUID::~ResourceUID() {
 	memdelete((CryptoCore::RandomGenerator *)crypto);
+	singleton = nullptr;
 }
