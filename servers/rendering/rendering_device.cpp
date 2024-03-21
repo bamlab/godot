@@ -1345,6 +1345,12 @@ void RenderingDevice::_bind_methods() {
 	BIND_CONSTANT(INVALID_FORMAT_ID);
 }
 
+RenderingDevice::~RenderingDevice() {
+	if (singleton == this) {
+		singleton = nullptr;
+	}
+}
+
 RenderingDevice::RenderingDevice() {
 	if (singleton == nullptr) { // there may be more rendering devices later
 		singleton = this;
