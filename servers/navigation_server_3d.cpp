@@ -30,6 +30,7 @@
 
 #include "navigation_server_3d.h"
 #include "core/config/project_settings.h"
+#include <iostream>
 
 NavigationServer3D *NavigationServer3D::singleton = nullptr;
 
@@ -165,6 +166,7 @@ void NavigationServer3D::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_debug_enabled"), &NavigationServer3D::get_debug_enabled);
 
 	ADD_SIGNAL(MethodInfo("map_changed", PropertyInfo(Variant::RID, "map")));
+	std::cout << "TOTO NAVIGATION SEREVR 3D map_changed" << std::endl;
 
 	ADD_SIGNAL(MethodInfo("navigation_debug_changed"));
 	ADD_SIGNAL(MethodInfo("avoidance_debug_changed"));
@@ -189,6 +191,8 @@ NavigationServer3D *NavigationServer3D::get_singleton() {
 NavigationServer3D::NavigationServer3D() {
 	ERR_FAIL_COND(singleton != nullptr);
 	singleton = this;
+
+	std::cout << "TOTO NAVIGATION SEREVR 3D SET SINGLETON => " << &singleton << std::endl;
 
 	GLOBAL_DEF_BASIC("navigation/2d/default_cell_size", 1.0);
 	GLOBAL_DEF("navigation/2d/use_edge_connections", true);
@@ -252,6 +256,7 @@ NavigationServer3D::NavigationServer3D() {
 
 NavigationServer3D::~NavigationServer3D() {
 	singleton = nullptr;
+	std::cout << "TOTO NAVIGATION SEREVR 3D REMOVE SINGLETON" << std::endl;
 }
 
 void NavigationServer3D::set_debug_enabled(bool p_enabled) {
