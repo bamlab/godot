@@ -302,6 +302,7 @@ public:
 	}
 
 	static FramebufferCacheRD *get_singleton() { return singleton; }
+	static void reset() { singleton = nullptr; }
 
 	FramebufferCacheRD();
 	~FramebufferCacheRD();

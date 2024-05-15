@@ -80,6 +80,7 @@
 #include "servers/text/text_server_dummy.h"
 #include "servers/text_server.h"
 #include "servers/xr_server.h"
+#include "servers/rendering/renderer_rd/framebuffer_cache_rd.h"
 
 #ifdef TESTS_ENABLED
 #include "tests/test_main.h"
@@ -3920,6 +3921,8 @@ void Main::cleanup(bool p_force) {
 	OS::get_singleton()->benchmark_dump();
 
 	OS::get_singleton()->finalize_core();
+
+	FramebufferCacheRD::reset();
 	Object::initialized = false; // Try to set initialized to false on clean => can improve it by creating a specific method
 	Main::versionYolo++;
 }
