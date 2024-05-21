@@ -1787,7 +1787,6 @@ void AnimationMixer::_call_object(Object *p_object, const StringName &p_method, 
 	for (uint32_t i = 0; i < argcount; i++) {
 		argptrs[i] = &args[i];
 	}
-	std::cout << "AnimationMixer::_call_object" << std::endl;
 	if (p_deferred) {
 		MessageQueue::get_singleton()->push_callp(p_object, p_method, argptrs, argcount);
 	} else {
@@ -2019,7 +2018,6 @@ void AnimationMixer::_node_removed(Node *p_node) {
 }
 
 void AnimationMixer::_notification(int p_what) {
-	std::cout << "AnimationMixer::_notification" << std::endl;
 	switch (p_what) {
 		case NOTIFICATION_ENTER_TREE: {
 			if (!processing) {
@@ -2048,7 +2046,6 @@ void AnimationMixer::_notification(int p_what) {
 }
 
 void AnimationMixer::_bind_methods() {
-	std::cout << "AnimationMixer::_bind_methods" << std::endl;
 	/* ---- Data lists ---- */
 	ClassDB::bind_method(D_METHOD("add_animation_library", "name", "library"), &AnimationMixer::add_animation_library);
 	ClassDB::bind_method(D_METHOD("remove_animation_library", "name"), &AnimationMixer::remove_animation_library);
@@ -2062,7 +2059,6 @@ void AnimationMixer::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_animation_list"), &AnimationMixer::_get_animation_list);
 
 	/* ---- General settings for animation ---- */
-	std::cout << "AnimationMixer::_bind_methods => General settings for animation" << std::endl;
 	ClassDB::bind_method(D_METHOD("set_active", "active"), &AnimationMixer::set_active);
 	ClassDB::bind_method(D_METHOD("is_active"), &AnimationMixer::is_active);
 
@@ -2082,7 +2078,6 @@ void AnimationMixer::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_audio_max_polyphony"), &AnimationMixer::get_audio_max_polyphony);
 
 	/* ---- Root motion accumulator for Skeleton3D ---- */
-	std::cout << "AnimationMixer::_bind_methods 3D" << std::endl;
 	ClassDB::bind_method(D_METHOD("set_root_motion_track", "path"), &AnimationMixer::set_root_motion_track);
 	ClassDB::bind_method(D_METHOD("get_root_motion_track"), &AnimationMixer::get_root_motion_track);
 
@@ -2094,7 +2089,6 @@ void AnimationMixer::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_root_motion_scale_accumulator"), &AnimationMixer::get_root_motion_scale_accumulator);
 
 	/* ---- Blending processor ---- */
-	std::cout << "AnimationMixer::_bind_methods Blending" << std::endl;
 	ClassDB::bind_method(D_METHOD("clear_caches"), &AnimationMixer::clear_caches);
 	ClassDB::bind_method(D_METHOD("advance", "delta"), &AnimationMixer::advance);
 	GDVIRTUAL_BIND(_post_process_key_value, "animation", "track", "value", "object", "object_idx");
@@ -2132,16 +2126,12 @@ void AnimationMixer::_bind_methods() {
 	ADD_SIGNAL(MethodInfo(SNAME("animation_started"), PropertyInfo(Variant::STRING_NAME, "anim_name")));
 	ADD_SIGNAL(MethodInfo(SNAME("caches_cleared")));
 
-	std::cout << "AnimationMixer::_bind_methods => END" << std::endl;
 }
 
 AnimationMixer::AnimationMixer() {
-	std::cout << "AnimationMixer::AnimationMixer" << std::endl;
 
 	root_node = SceneStringNames::get_singleton()->path_pp; //
-	std::cout << "AnimationMixer::AnimationMixer2" << std::endl;
 }
 
 AnimationMixer::~AnimationMixer() {
-	std::cout << "AnimationMixer::~AnimationMixer" << std::endl;
 }
