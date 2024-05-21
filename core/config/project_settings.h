@@ -208,6 +208,8 @@ public:
 	bool has_autoload(const StringName &p_autoload) const;
 	AutoloadInfo get_autoload(const StringName &p_name) const;
 
+	static void reset();
+
 	ProjectSettings();
 	~ProjectSettings();
 };
