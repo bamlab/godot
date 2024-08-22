@@ -433,7 +433,7 @@ void unregister_core_types() {
 	ClassDB::cleanup();
 	ResourceCache::clear();
 	CoreStringNames::free();
-	StringName::cleanup();
+	StringName::cleanup(); //
 
 	OS::get_singleton()->benchmark_end_measure("unregister_core_types");
 }
