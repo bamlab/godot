@@ -36,6 +36,7 @@
 int gargc;
 char **gargv;
 
+/*
 int main(int argc, char *argv[]) {
 #if defined(VULKAN_ENABLED)
 	//MoltenVK - enable full component swizzling support
@@ -50,4 +51,4 @@ int main(int argc, char *argv[]) {
 		UIApplicationMain(argc, argv, nil, className);
 	}
 	return 0;
-}
+}*/

@@ -156,7 +156,7 @@
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	print_verbose("Did receive memory warning!");
+	//print_verbose("Did receive memory warning!");
 }
 
 - (void)viewDidLoad {
@@ -169,11 +169,11 @@
 }
 
 - (void)observeKeyboard {
-	print_verbose("Setting up keyboard input view.");
+	//print_verbose("Setting up keyboard input view.");
 	self.keyboardView = [GodotKeyboardInputView new];
 	[self.view addSubview:self.keyboardView];
 
-	print_verbose("Adding observer for keyboard show/hide.");
+	//print_verbose("Adding observer for keyboard show/hide.");
 	[[NSNotificationCenter defaultCenter]
 			addObserver:self
 			   selector:@selector(keyboardOnScreen:)
